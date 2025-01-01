@@ -23,6 +23,12 @@ User.create!(first_name: "Tonton", last_name: "dupont", email: "tonton@gmail.com
 file_user_2 = URI.parse("https://www.gtanf.com/forums/uploads/monthly_2018_12/avatar-artwork.thumb.jpg.52347ce581c909bdd8487ce4fc53fc95.jpg").open
 user2 = User.all[1].photo.attach(io: file_user_2, filename: "user-2", content_type: "image/jpg")
 
+users = User.all
+
+user_id = users.map do |user|
+  user.id
+end
+
 puts "#{User.count} Users are created"
 
 puts "Created #{Bike.count} bikes"
@@ -31,13 +37,13 @@ puts "Created #{Bike.count} bikes"
   Bike.create!(name: Faker::Name.name, content: Faker::Lorem.paragraph, rating: rand(0.0..5.0), price: rand(100..500), user_id: user_id.sample)
 end
 
-puts "#{Bike.count} Inflatable games are created"
+puts "#{Bike.count} bikes are created"
 
-file_bike_1 = URI.parse("https://www.stalkermadbikes.com/cdn/shop/products/TRANSHUMANCE2023_1_1980x.jpg?v=1673961952").open
+file_bike_1 = URI.parse("https://media.istockphoto.com/id/1415317051/fr/photo/v%C3%A9lo-%C3%A9lectrique-noir-isol%C3%A9-sur-fond-blanc.jpg?s=2048x2048&w=is&k=20&c=EPZrVjjCXbgfAPzV8SrcIphh_pY7JNam9j_ldxfwJk0=").open
 bike1 = Bike.all[0].photo.attach(io: file_bike_1, filename: "bike-1", content_type: "image/jpg")
 
 file_bike_2 = URI.parse("https://www.transitionvelo.com/content/uploads/2024/03/velo-tout-chemin-electrique-a-moteur-central-cadre-bas-e-actv-500-vert-1024x1024.jpg").open
-bike2 = Bike.all[1].photo.attachh(io: file_bike_2, filename: "bike-2", content_type: "image/jpg")
+bike2 = Bike.all[1].photo.attach(io: file_bike_2, filename: "bike-2", content_type: "image/jpg")
 
 file_bike_3 = URI.parse("https://www.tomsguide.fr/content/uploads/sites/2/2023/11/Honda-velo-electrique-moto-prototype.jpg").open
 bike3 = Bike.all[2].photo.attach(io: file_bike_3, filename: "bike-3", content_type: "image/jpg")

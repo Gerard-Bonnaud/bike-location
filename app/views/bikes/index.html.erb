@@ -1,0 +1,20 @@
+<h1 class="text-center pb-5 pt-3"><strong>Vélos électriques</strong></h1>
+ <div class="page-container">
+  <div class="custom-card-container">
+    <% @bikes.each do |bike| %>
+      <div class="custom-card">
+        <% if bike.photo.attached? %>
+          <svg class="custom-card" style="background-image: url('<%= cl_image_path bike.photo.key, height: 300, crop: :fill %>')">
+          </svg>
+        <% else %>
+          <svg class="card" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlfiiwY98_7QOcHjiYBUBGsIbitAXLfO3z2Q&s')">
+          </svg>
+        <% end %>
+        <div class="custom-card-content">
+          <p class="custom-card-title"><%= link_to bike.name, bike_path(bike), class: "link" %></p>
+          <p class="custom-card-description"><%= bike.content %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
