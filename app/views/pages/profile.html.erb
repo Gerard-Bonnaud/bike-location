@@ -1,0 +1,124 @@
+<div class="container profile">
+  <h1 class="titre1">Bonjour <%= @user.first_name %> <%= @user.last_name %></h1>
+</div>
+
+  <div class="container mt-5">
+    <h2>Mes vélos en location</h2>
+    <hr>
+
+    <div class="card-category2">
+      <div class="list-group">
+        <% if @bikes.present? %>
+          <% @bikes.each do |bike| %>
+            <div class="card-product">
+              <div class="card-product-infos">
+                <h2>
+                  <strong>
+                    <%= link_to bike.name, bike_path(bike), class: "link1" %>
+                  </strong>
+                </h2>
+                  <div class="container-card">
+                    <% if bike.photo.attached? %>
+                      <div class="card-style" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bike.photo.key, height: 300, crop: :fill %>')">
+                        <%= link_to edit_bike_path(bike) do %>
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        <% end %>
+                      </div>
+                    <% else %>
+                      <div class="card-style" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlfiiwY98_7QOcHjiYBUBGsIbitAXLfO3z2Q&s')">
+                        <%= link_to edit_bike_path(bike) do %>
+                          <i class="fa-regular fa-pen-to-square"></i>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                    <p>Prix : <%= bike.price %>€</p>
+                    <%= link_to bike_path(bike), data: {turbo_method: :delete} do %>
+                      <button class="btn-supprimer">Supprimer</button>
+                     <% end %>
+              </div>
+            </div>
+            <% end %>
+            <% else %>
+              <li class="list-group-item">Vous n'avez pas encore ajouté de vélos.</li>
+            <% end %>
+      </div>
+
+    </div>
+      <hr>
+  </div>
+
+  <div class="container mt-5">
+    <h2 class="my-4">Mes Réservations</h2>
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom vélos</th>
+            <th scope="col">Date de début</th>
+            <th scope="col">Date de fin</th>
+            <th scope="col">Statut</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <% if @my_rents.any? %>
+            <% @my_rents.each_with_index do |rent, index| %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><strong><%= link_to rent.bike.name, bike_path(rent.bike) %></strong></td>
+                <td><%= rent.date_debut || "Non définie" %></td>
+                <td><%= rent.date_fin || "Non définie" %></td>
+                <td class="text-muted"><%= rent.statut || "En attente" %></td>
+                <td><%= link_to rent_path(rent), data: { turbo_method: :delete }, method: :delete, class: "btn btn-danger" do %>
+                    Supprimer
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td colspan="6" class="text-center">Aucune réservation pour le moment.</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="container mt-5">
+    <h2 class="my-4">Mes Demandes de Réservations</h2>
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom vélo</th>
+            <th scope="col">Réservé par :</th>
+            <th scope="col">Date de début</th>
+            <th scope="col">Date de fin</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <% if @requests.any? %>
+            <% @requests.each_with_index do |rent, index| %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><strong><%= link_to rent.bike.name, bike_path(rent.bike) %></strong></td>
+                <td><%= rent.user.first_name %> <%= rent.user.last_name %></td>
+                <td><%= rent.date_debut || "Non définie" %></td>
+                <td><%= rent.date_fin || "Non définie" %></td>
+                <td>
+                  <% if rent.statut == "En attente" %>
+                    <%= button_to "Accepter", accept_rent_path(rent), method: :patch, class: "btn btn-success btn-sm" %>
+                    <%= button_to "Rejeter", reject_rent_path(rent), method: :patch, class: "btn btn-danger btn-sm" %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td colspan="6" class="text-center">Aucune demande de réservation pour le moment.</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
