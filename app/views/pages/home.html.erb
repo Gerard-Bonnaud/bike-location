@@ -1,2 +1,87 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="hero bg-light">
+  <h1>Bienvenue sur notre site de location</h1>
+  <p>Découvrez nos vélos électriques !</p>
+</div>
+
+<div>
+  <h2>Voir nos vélos !</h2>
+  <%= link_to "Réserver dès maintenant", bikes_path, class: "btn" %>
+</div>
+
+
+<div class="service">
+  <div class="card-icon">
+    <div class="card-inner-icon">
+      <div class="card-front-icon">
+        <i class="fa-solid fa-truck"></i>
+      </div>
+      <div class="card-back-icon">
+        <p>Livraison incluses</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-icon">
+    <div class="card-inner-icon">
+      <div class="card-front-icon">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div class="card-back-icon">
+        <p>Nettoyage et désinfection après chaque location</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-icon">
+    <div class="card-inner-icon">
+      <div class="card-front-icon">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="card-back-icon">
+        <p>Assistance 7j/7</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section">
+  <div class="form-card1">
+      <div class="form-card2">
+        <form class="form">
+          <p class="form-heading">Nous contacter</p>
+
+          <div class="form-field">
+            <input required="" placeholder="Nom" class="input-field" type="text" />
+          </div>
+
+          <div class="form-field">
+            <input
+              required=""
+              placeholder="Email"
+              class="input-field"
+              type="email"
+            />
+          </div>
+
+          <div class="form-field">
+            <input
+              required=""
+              placeholder="Date de l'évènement"
+              class="input-field"
+              type="text"
+            />
+          </div>
+
+          <div class="form-field">
+            <textarea
+              required=""
+              placeholder="Décrivez-nous vos besoins"
+              cols="30"
+              rows="3"
+              class="input-field"
+            ></textarea>
+          </div>
+
+          <button class="sendMessage-btn">Envoyer</button>
+        </form>
+      </div>
+  </div>
+</div>
