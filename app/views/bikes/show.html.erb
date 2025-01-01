@@ -1,0 +1,32 @@
+<div class="container-sm mt-5">
+
+  <h1 class="text-primary text-center pb-3"><strong>Vélo électrique</strong></h1>
+  <hr>
+
+
+  <div class="d-flex p-3 align-items-center">
+    <div class="img_bike flex-shrink-0">
+      <% if @bike.photo.attached? %>
+        <%= cl_image_tag @bike.photo.key, height: 300, width: 300, crop: :fill %>
+      <% else %>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlfiiwY98_7QOcHjiYBUBGsIbitAXLfO3z2Q&s">
+      <% end %>
+    </div>
+    <div class="info_bike flex-grow-1 ms-5">
+      <h2 class="h2-show"><strong><%= @bike.name %></strong></h2>
+      <p><strong><%= @bike.content %></strong></p>
+
+      <p class="show"><strong>Note : <%= @bike.rating %>/5</strong></p>
+
+      <p class="show"><strong>Prix : <%= @bike.price %> €</strong></p>
+    </div>
+  </div>
+
+  <hr>
+    <!-- Bouton pour retourner à la liste des gonflables -->
+    <div class="pt-2">
+      <%= link_to bikes_path(@bikes) do %>
+        <button class="btn">Retour aux vélos</button>
+      <% end %>
+    </div>
+</div>
