@@ -22,11 +22,11 @@ class BikesController < ApplicationController
     @bike = Bike.new(bike_params)
     @bike.user = current_user
     respond_to do |format|
-      if @gonflable.save
-        format.html { redirect_to @gonflable, notice: "Votre Gonflable est bien créé" }
+      if @bike.save
+        format.html { redirect_to @bike, notice: "Votre vélos est bien créé" }
         format.json
       else
-        format.html { redirect_to user_profile_path, notice: "Votre Gonflable n'a pas été créé" }
+        format.html { redirect_to user_profile_path, notice: "Votre vélo n'a pas été créé" }
         format.json
       end
     end

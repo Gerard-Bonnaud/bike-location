@@ -7,8 +7,8 @@ class RentsController < ApplicationController
     @rent.bike_id = @bike.id
     @rent.user = current_user
     if @rent.save
-      redirect_to user_profile_path
       flash[:notice] = "Vélo bien ajouté à mes réservations"
+      redirect_to user_profile_path
     else
       render :new, alert: "Erreur, impossible d'ajouter le vélo à mes reservations, Réessayez !"
     end
