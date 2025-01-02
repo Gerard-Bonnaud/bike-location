@@ -1,0 +1,56 @@
+.btn {
+  font-family: "Roboto Mono", monospace;
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #1E2A5E;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor:pointer;
+  text-align: center;
+
+}
+
+.btn:hover {
+  background: #55679C;
+  color: white;
+}
+
+.btn-valider {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #55679C;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor:pointer;
+  text-align: center;
+  border: none;
+}
+
+.btn-valider:hover {
+  background: #1E2A5E;
+  color: white;
+}
+
+.btn-supprimer {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #C7253E;
+  border: none;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor:pointer;
+  text-align: center;
+}
+
+.btn-supprimer:hover {
+  background: #821131;
+}
