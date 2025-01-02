@@ -1,0 +1,51 @@
+.video-section {
+  position: relative;
+  width: 100%; /* La largeur peut être ajustée */
+  height: 600px; /* Définissez une hauteur spécifique pour la section vidéo */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000; /* Couleur de fond pour les bordures éventuelles */
+}
+
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.3); /* Fond semi-transparent pour améliorer la lisibilité */
+}
+
+.video-overlay h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.video-overlay p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.service {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 20px;
+
+}
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}

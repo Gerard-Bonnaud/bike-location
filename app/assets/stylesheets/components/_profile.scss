@@ -1,0 +1,44 @@
+.profile {
+  width: 800px;
+  text-align: center;
+  margin: 50px auto;
+  font-family: "Roboto Mono", monospace;
+  }
+
+  .titre1 {
+    color: $color2;
+    font-weight: bolder;
+    font-family: "Roboto Mono", monospace;
+  }
+  .titre2 {
+    font-weight:bold;
+    font-family: "Roboto Mono", monospace;
+    color: #3D3BF3;
+    text-align: center;
+    padding-bottom: 16px;
+  }
+
+  .list-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  .link1 {
+    text-decoration: none;
+    color: #3D3BF3;
+  }
+
+  .price1 {
+    color: #6674f3;
+    font-weight: bold;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    font-family: "Roboto Mono", monospace;
+  }
+
+  .my-4 {
+    font-weight:bold;
+    font-family: "Roboto Mono", monospace;
+    color:rgb(17, 182, 223)
+  }
