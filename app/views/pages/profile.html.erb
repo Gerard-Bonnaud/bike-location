@@ -48,6 +48,15 @@
       <hr>
   </div>
 
+   <div class="container mt-5">
+      <div data-controller="toggle" class="mt-5">
+        <button data-action="click->toggle#fire" class="btn">Ajouter un vélo</button>
+          <div data-toggle-target="togglableElement" class="d-none">
+          <%= render "form", bike: @bike %>
+          </div>
+      </div>
+  </div>
+
   <div class="container mt-5">
     <h2 class="my-4">Mes Réservations</h2>
       <table class="table table-hover align-middle">

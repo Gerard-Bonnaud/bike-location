@@ -20,6 +20,23 @@
 
       <p class="show"><strong>Prix : <%= @bike.price %> €</strong></p>
     </div>
+
+    <div data-controller="toggle-rent" class="mt-5">
+      <button data-action="click->toggle-rent#fire" class="btn"><span>Louer</span></button>
+      <div data-toggle-rent-target="togglableElement" class="d-none">
+        <%= simple_form_for [@bike, @rent] do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.label :date_debut, "Date de début" %>
+            <%= f.date_field :date_debut, class: "form-control" %>
+            <%= f.label :date_fin, "Date de fin" %>
+            <%= f.date_field :date_fin, class: "form-control" %>
+          </div>
+          <%= f.button :submit, "Valider", class: "btn-valider" %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 
   <hr>
